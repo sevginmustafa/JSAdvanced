@@ -15,5 +15,5 @@ function cookingByNumbers (num, ...params) {
     }
 }
 
-//cookingByNumbers('32', 'chop', 'chop', 'chop', 'chop', 'chop');
+cookingByNumbers('32', 'chop', 'chop', 'chop', 'chop', 'chop');
 cookingByNumbers('9', 'dice', 'spice', 'chop', 'bake', 'fillet');
