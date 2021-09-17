@@ -3,27 +3,19 @@ function roadRadar (speed, area) {
     let overLimitSpeed = 0;
 
     switch (area){
-        case 'motorway': areaSpeedLimit = 130;
-        if (speed > areaSpeedLimit) {
-            overLimitSpeed = speed - areaSpeedLimit; 
-        }
+        case 'motorway': areaSpeedLimit = 130;       
         break;
         case 'interstate': areaSpeedLimit = 90;
-        if (speed > areaSpeedLimit) {
-            overLimitSpeed = speed - areaSpeedLimit; 
-        }
         break;
         case 'city': areaSpeedLimit = 50;
-        if (speed > areaSpeedLimit) {
-            overLimitSpeed = speed - areaSpeedLimit; 
-        }
         break;
         case 'residential': areaSpeedLimit = 20;
-        if (speed > areaSpeedLimit) {
-            overLimitSpeed = speed - areaSpeedLimit; 
-        }
         break;
     }
+    
+    if (speed > areaSpeedLimit) {
+            overLimitSpeed = speed - areaSpeedLimit; 
+        }
     
     if (overLimitSpeed == 0) {
             return `Driving ${speed} km/h in a ${areaSpeedLimit} zone`
