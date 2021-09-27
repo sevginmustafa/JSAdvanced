@@ -1,3 +1,4 @@
+//unfinished
 function orbit(array) {
     const [width, height, x, y] = array;
 
