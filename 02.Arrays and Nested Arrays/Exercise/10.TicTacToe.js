@@ -13,7 +13,7 @@ function ticTacToe(moves) {
     let succesMoves = 0;
 
     for (let i = 0; i < moves.length; i++) {
-        const[x,y]=moves[i].split(' ');
+        const [x, y] = moves[i].split(' ');
 
         if (dashboard[x][y]) {
             console.log('This place is already taken. Please choose another!');
@@ -29,13 +29,13 @@ function ticTacToe(moves) {
         //check rows
         for (let row = 0; row < dashboard.length; row++) {
             let currElement = dashboard[row][0];
-            if (currElement == false) {
+            if (!currElement) {
                 continue;
             }
 
-            let counter = 0;
+            let counter = 1;
 
-            for (let col = 0; col < dashboard.length; col++) {
+            for (let col = 1; col < dashboard.length; col++) {
                 if (dashboard[row][col] != currElement) {
                     break;
                 }
@@ -53,12 +53,13 @@ function ticTacToe(moves) {
         //check cols
         for (let row = 0; row < dashboard.length; row++) {
             let currElement = dashboard[0][row];
-            if (currElement == false) {
+            if (!currElement) {
                 continue;
             }
-            let counter = 0;
 
-            for (let col = 0; col < dashboard.length; col++) {
+            let counter = 1;
+
+            for (let col = 1; col < dashboard.length; col++) {
                 if (dashboard[col][row] != currElement) {
                     break;
                 }
@@ -99,6 +100,7 @@ function ticTacToe(moves) {
             return;
         }
     }
+
 }
 
 ticTacToe(["0 1",
