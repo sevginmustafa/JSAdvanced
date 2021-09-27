@@ -7,13 +7,35 @@ function spiralMatrix(rows, cols) {
     let counter = 1;
 
     for (let row = 0; row < matrix.length; row++) {
-        for (let col = 0; col < matrix[row].length; col++) {
+        for (let col = row; col < matrix.length; col++) {
+            if (matrix[row][col]) {
+                break;
+            }
             matrix[row][col] = counter;
             counter++;
         }
 
-        for (let col = row + 1; col < matrix.length; col++) {
-            matrix[col][matrix.length - row] = counter;
+        for (let col = row; col < matrix.length - 1; col++) {
+            if (matrix[col+1][matrix.length - row - 1]) {
+                break;
+            }
+            matrix[col+1][matrix.length - row - 1] = counter;
+            counter++;
+        }
+
+        for (let col = matrix.length - row - 2; col >= 0; col--) {
+            if (matrix[matrix.length - row - 1][col]) {
+                break;
+            }
+            matrix[matrix.length - row - 1][col] = counter;
+            counter++;
+        }
+
+        for (let col = matrix.length - row - 2; col > 0; col--) {
+            if (matrix[col][row]) {
+                break;
+            }
+            matrix[col][row] = counter;
             counter++;
         }
     }
@@ -24,3 +46,4 @@ function spiralMatrix(rows, cols) {
 }
 
 spiralMatrix(3, 3);
+spiralMatrix(5, 5);
