@@ -1,4 +1,3 @@
-//unfinished
 function orbit(array) {
     const [width, height, x, y] = array;
 
@@ -7,13 +6,9 @@ function orbit(array) {
         matrix[row] = new Array(height);
     }
 
-    for (let row = 0; row < matrix.length; row++) {
-        for (let col = 0; col < matrix[row].length; col++) {
-            let distance = Math.sqrt(Math.pow(row - x, 2) + Math.pow(col - y, 2));
-
-            if (distance - width <= 1) {
-                matrix[row][col] = Math.floor(distance);
-            }
+    for (let row = 0; row < width; row++) {
+        for (let col = 0; col < height; col++) {
+            matrix[row][col] = Math.max(Math.abs(row - x), Math.abs(col - y)) + 1;
         }
     }
 
